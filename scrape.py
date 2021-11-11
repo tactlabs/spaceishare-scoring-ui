@@ -39,6 +39,7 @@ def scrape_details(url):
         if a.img:
             a.img['src']
 
+    info_dict['id'] = 123
     info_dict["name"] = heading
     info_dict["price"] = price
     info_dict["description"] = description
