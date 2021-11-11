@@ -37,7 +37,7 @@ def main():
         score = compute_score(df)
 
         my_bar.progress(100)
-        score = 100
+        # score = 100
         st.markdown(f'''
         
         #### score : {score}
