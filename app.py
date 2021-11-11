@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np 
 from pipeline import get_features
 from scoring import get_score
+from scrape import scrape_details
 
 
 st.write('''
@@ -27,13 +28,13 @@ def main():
     if url:
 
         my_bar.progress(20)
-        # data = scrape_details(url)
+        data = scrape_details(url)
 
         my_bar.progress(25)
-        # df = create_df(data)
+        df = create_df(data)
 
         my_bar.progress(85)
-        # score = compute_score(validate)
+        score = compute_score(df)
 
         my_bar.progress(100)
         score = 100
