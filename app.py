@@ -44,6 +44,12 @@ def main():
         
         ''')
 
+        st.write('')
+        st.markdown(f"#### title : {data['name']}")
+        st.markdown(f"#### price : {data['price']}")
+        st.markdown(f"#### type of space : {data['type of space']}")
+        st.markdown(f"#### hosted by : {data['hosted by']}")
+
 
 main()
 
