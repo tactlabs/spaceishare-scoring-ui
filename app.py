@@ -1,35 +1,48 @@
-'''
-Created on 
+from typing import Dict
+import streamlit as st
+import pandas as pd 
+import numpy as np 
+from pipeline import get_features
+from scoring import get_score
 
-Course work: 
 
-@author: Harini
+st.write('''
+    # Spacieshare Ad Score
+''')
 
-Source:
-    
-'''
+def create_df(data : Dict):
+    n = [[data[col] for col in data]]
+    return pd.DataFrame(n, columns = data.keys())
 
-# Import necessary modules
-from flask import  Flask,render_template, send_file, request
-from flask import *
+def compute_score(df):
+    validate = get_features(df)
+    score = get_score(validate)[0]
+    return score
 
-app = Flask(__name__)
+def main():
+    url = st.text_input('url')
 
-@app.route('/', methods=['GET'])
-def home():
+    my_bar = st.progress(0)
+    my_bar.progress(5)
+    if url:
 
-    return render_template('index.html')
+        my_bar.progress(20)
+        # data = scrape_details(url)
 
-@app.route('/', methods=['POST'])
-def home_post():
+        my_bar.progress(25)
+        # df = create_df(data)
 
-    link = request.form.get('input')
-    return render_template('index.html')
+        my_bar.progress(85)
+        # score = compute_score(validate)
 
-def startpy():
+        my_bar.progress(100)
+        score = 100
+        st.markdown(f'''
+        
+        #### score : {score}
+        
+        ''')
 
-    app.run(debug=True)
 
-if __name__ == '__main__':
+main()
 
-    startpy()

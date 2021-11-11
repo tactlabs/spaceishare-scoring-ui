@@ -1,0 +1,5 @@
+stanza
+pandas 
+streamlit
+numpy
+scipy
