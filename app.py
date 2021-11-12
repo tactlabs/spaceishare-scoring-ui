@@ -25,31 +25,31 @@ def main():
     my_bar = st.progress(0)
     if 'https://spaceishare.com/listing/parking-space' not in url and len(url) > 0:
         st.error('it only accepts spaceishare ad-listings url ...')
-        url = None
-    if url:
-        my_bar.progress(5)
-        my_bar.progress(20)
-        data = scrape_details(url)
+    else:
+        if url:
+            my_bar.progress(5)
+            my_bar.progress(20)
+            data = scrape_details(url)
 
-        my_bar.progress(25)
-        df = create_df(data)
+            my_bar.progress(25)
+            df = create_df(data)
 
-        my_bar.progress(85)
-        score = compute_score(df)
+            my_bar.progress(85)
+            score = compute_score(df)
 
-        my_bar.progress(100)
-        # score = 100
-        st.markdown(f'''
-        
-        #### score : {score}
-        
-        ''')
+            my_bar.progress(100)
+            # score = 100
+            st.markdown(f'''
+            
+            #### score : {score}
+            
+            ''')
 
-        st.write('')
-        st.markdown(f"#### title : {data['name']}")
-        st.markdown(f"#### price : {data['price']}")
-        st.markdown(f"#### type of space : {data['type of space']}")
-        st.markdown(f"#### hosted by : {data['hosted by']}")
+            st.write('')
+            st.markdown(f"#### title : {data['name']}")
+            st.markdown(f"#### price : {data['price']}")
+            st.markdown(f"#### type of space : {data['type of space']}")
+            st.markdown(f"#### hosted by : {data['hosted by']}")
 
 
 main()
