@@ -7,7 +7,7 @@ import scipy.stats as stats
 import re, os
 import stanza
 
-# stanza.download('en')
+stanza.download('en')
 
 def count_images(x):
     return len(x)

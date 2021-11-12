@@ -3,3 +3,7 @@ pandas
 streamlit
 numpy
 scipy
+matplotlib
+bs4
+requests
+seaborn
