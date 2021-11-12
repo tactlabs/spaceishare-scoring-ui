@@ -21,12 +21,13 @@ def compute_score(df):
     return score
 
 def main():
-    url = st.text_input('url')
-
+    url = st.text_input('Spaceishare URL :')
     my_bar = st.progress(0)
-    my_bar.progress(5)
+    if 'https://spaceishare.com/listing/parking-space' not in url:
+        st.error('it only accepts spaceishare ad-listings url ...')
+        url = None
     if url:
-
+        my_bar.progress(5)
         my_bar.progress(20)
         data = scrape_details(url)
 
