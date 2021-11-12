@@ -23,7 +23,7 @@ def compute_score(df):
 def main():
     url = st.text_input('Spaceishare URL :')
     my_bar = st.progress(0)
-    if 'https://spaceishare.com/listing/parking-space' not in url:
+    if 'https://spaceishare.com/listing/parking-space' not in url and len(url) > 0:
         st.error('it only accepts spaceishare ad-listings url ...')
         url = None
     if url:
